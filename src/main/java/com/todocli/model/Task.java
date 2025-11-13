@@ -1,12 +1,10 @@
-package model;
+package com.todocli.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Task {
-    private static int nextId = 1;
-
-    private final int id;
+    private long id;
     private LocalDate date;
     private LocalTime time;
     private String title;
@@ -14,18 +12,22 @@ public class Task {
     private boolean completed;
     private boolean deleted;
 
-    public Task(String title, String description, LocalDate date, LocalTime time) {
-        this.title = title;
-        this.description = description;
+    public Task(long id, LocalDate date, LocalTime time, String title, String description, boolean completed, boolean deleted) {
+        this.id = id;
         this.date = date;
         this.time = time;
-        this.id = nextId++;
-        this.completed = false;
-        this.deleted = false;
+        this.title = title;
+        this.description = description;
+        this.completed = completed;
+        this.deleted = deleted;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public LocalDate getDate() {

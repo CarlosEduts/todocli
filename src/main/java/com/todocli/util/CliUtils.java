@@ -1,4 +1,4 @@
-package util;
+package com.todocli.util;
 
 public class CliUtils {
     public static void clear() {

@@ -1,4 +1,4 @@
-package model;
+package com.todocli.view.enums;
 
 public enum Colors {
     SUCCESS("\033[92m"),  // verde

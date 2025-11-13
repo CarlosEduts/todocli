@@ -1,9 +1,9 @@
-package view;
+package com.todocli.view;
 
-import model.HomeOption;
-import model.Task;
-import model.Colors;
-import model.TaskOption;
+import com.todocli.view.enums.HomeOption;
+import com.todocli.model.Task;
+import com.todocli.view.enums.Colors;
+import com.todocli.view.enums.TaskOption;
 
 import java.util.List;
 import java.util.Optional;

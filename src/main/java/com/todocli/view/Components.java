@@ -1,8 +1,8 @@
-package view;
+package com.todocli.view;
 
-import model.Task;
-import util.CliUtils;
-import model.Colors;
+import com.todocli.model.Task;
+import com.todocli.util.CliUtils;
+import com.todocli.view.enums.Colors;
 
 import java.time.format.DateTimeFormatter;
 import java.util.List;
