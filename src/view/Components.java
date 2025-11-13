@@ -30,14 +30,16 @@ public class Components {
 
     public static void home() {
         CliUtils.clear();
-        System.out.println("╔═════════════════════════════════════════════════════════════════════╗");
-        System.out.println("║                         JAVA TODO CLI - MENU                        ║");
-        System.out.println("╠═════════════════════════════════════════════════════════════════════╣");
-        System.out.println("║ [L] Listar tarefas       [C] Criar tarefa       [F] Filtrar         ║");
-        System.out.println("║ [S] Buscar tarefa        [Q] Sair                                   ║");
-        System.out.println("╠═════════════════════════════════════════════════════════════════════╣");
-        System.out.println("║ Atalho: Pressione a tecla entre colchetes e ENTER.                  ║");
-        System.out.println("╚═════════════════════════════════════════════════════════════════════╝");
+        System.out.println("""      
+                ╔═════════════════════════════════════════════════════════════════════╗
+                ║                         JAVA TODO CLI - MENU                        ║
+                ╠═════════════════════════════════════════════════════════════════════╣
+                ║ [L] Listar tarefas       [C] Criar tarefa       [F] Filtrar         ║
+                ║ [S] Buscar tarefa        [Q] Sair                                   ║
+                ╠═════════════════════════════════════════════════════════════════════╣
+                ║ Atalho: Pressione a tecla entre colchetes e ENTER.                  ║
+                ╚═════════════════════════════════════════════════════════════════════╝
+                """);
     }
 
     public static void tasks(List<Task> tasks) {
@@ -96,6 +98,19 @@ public class Components {
                 task.getId(),
                 truncateOrPad(task.getTitle(), 28)
         );
+    }
+
+    public static void confirmCompleted(Task task) {
+        System.out.printf("""
+                ╔════════════════════════════════╗
+                ║   MARCAR COMO CONCLUÍDA        ║
+                ╠════════════════════════════════╣
+                ║ Deseja marcar a tarefa %03d como ║
+                ║ concluída?                     ║
+                ║                                ║
+                ║ [Y] Sim    [N] Não             ║
+                ╚════════════════════════════════╝
+                """, task.getId());
     }
 
     // Métodos auxiliares privados
