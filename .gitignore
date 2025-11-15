@@ -5,6 +5,7 @@ out/
 .kotlin
 .idea/
 java-todo-cli.iml
+target/
 
 ### Eclipse ###
 .apt_generated
