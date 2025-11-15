@@ -32,5 +32,9 @@ public class Main {
                 false
         );
         TaskRepository.delete(3);
+
+        for (Task task: TaskRepository.findAll()){
+            System.out.println(task);
+        }
     }
 }

@@ -22,6 +22,19 @@ public class Task {
         this.deleted = deleted;
     }
 
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", date=" + date +
+                ", time=" + time +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", completed=" + completed +
+                ", deleted=" + deleted +
+                '}';
+    }
+
     public long getId() {
         return id;
     }

@@ -5,8 +5,11 @@ import com.todocli.model.Task;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TaskRepository {
     public static Task create(Task task) {
@@ -51,5 +54,31 @@ public class TaskRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static List<Task> findAll() {
+        final String sql = "SELECT * FROM tasks;";
+        List<Task> tasks = new ArrayList<>();
+
+        try (Connection conn = ConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                tasks.add(new Task(
+                        rs.getInt("id"),
+                        rs.getDate("date").toLocalDate(),
+                        rs.getTime("time").toLocalTime(),
+                        rs.getString("title"), rs.getString("description"),
+                        rs.getBoolean("completed"),
+                        rs.getBoolean("deleted"))
+                );
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Erro ao buscar usuários", e);
+        }
+
+        return tasks;
     }
 }
