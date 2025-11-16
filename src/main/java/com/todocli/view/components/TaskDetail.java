@@ -28,6 +28,7 @@ public class TaskDetail {
         }
     }
 
+    /* ------------ MÉTODOS PRIVADOS AUXILIARES ------------ */
     private static void print(Task task) {
         CliUtils.clear();
         System.out.println("╔══════════════════════════════════════════════════════════════════════════════════════════════╗");

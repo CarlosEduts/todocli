@@ -24,6 +24,7 @@ public class Home {
         }
     }
 
+    /* ------------ MÉTODOS PRIVADOS AUXILIARES ------------ */
     private static void print() {
         CliUtils.clear();
         System.out.println("""      

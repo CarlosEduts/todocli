@@ -20,6 +20,7 @@ public class Message {
         print(Colors.RED, message);
     }
 
+    /* ------------ MÉTODOS PRIVADOS AUXILIARES ------------ */
     private static void print(Colors color, String message) {
         String border = "═".repeat(message.length() + 28);
 

@@ -34,6 +34,7 @@ public class TasksList {
 
     }
 
+    /* ------------ MÉTODOS PRIVADOS AUXILIARES ------------ */
     private static void print(List<Task> tasks) {
         int quantity = tasks.size();
         int completedQuantity = Math.toIntExact(tasks.stream().filter(Task::isCompleted).count());

@@ -24,6 +24,7 @@ public class ConfirmBox {
         return selected == 'Y';
     }
 
+    /* ------------ MÉTODOS PRIVADOS AUXILIARES ------------ */
     private static void printDelete(Task task) {
         System.out.printf("""
                         ╔════════════════════════════════╗
