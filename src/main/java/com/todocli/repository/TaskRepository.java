@@ -3,16 +3,36 @@ package com.todocli.repository;
 import com.todocli.config.ConnectionFactory;
 import com.todocli.model.Task;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TaskRepository {
-    public static Task create(Task task) {
+    public static void createTable(Connection conn) {
+        String sql = """
+                    CREATE TABLE IF NOT EXISTS tasks (
+                        id BIGINT NOT NULL AUTO_INCREMENT,
+                        date DATE NOT NULL,
+                        time TIME NULL,
+                        title VARCHAR(255) NOT NULL,
+                        description TEXT NULL,
+                        completed TINYINT(1) NOT NULL DEFAULT 0,
+                        deleted TINYINT(1) NOT NULL DEFAULT 0,
+                        PRIMARY KEY (id)
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                """;
+
+        try (Statement stmt = conn.createStatement()) {
+            stmt.execute(sql);
+            System.out.println("[util] " + LocalTime.now() + " - Tabela 'tasks' pronta para uso.");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static Task save(Task task) {
         String sql = "INSERT INTO tasks (date, time, title, description, completed, deleted) VALUES (?, ?, ?, ?, ?, ?);";
 
         try (Connection conn = ConnectionFactory.getConnection()) {
