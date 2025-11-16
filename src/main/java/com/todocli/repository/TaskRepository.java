@@ -32,7 +32,7 @@ public class TaskRepository {
         }
     }
 
-    public static Task save(Task task) {
+    public static void save(Task task) {
         String sql = "INSERT INTO tasks (date, time, title, description, completed, deleted) VALUES (?, ?, ?, ?, ?, ?);";
 
         try (Connection conn = ConnectionFactory.getConnection()) {
@@ -47,8 +47,6 @@ public class TaskRepository {
         } catch (SQLException e) {
             throw new RuntimeException("[model] " + e);
         }
-
-        return task;
     }
 
     public static void delete(Task task) {

@@ -13,6 +13,19 @@ public class TaskService {
         HomeOption homeOption = Home.show();
         switch (homeOption) {
             case LIST -> tasks();
+            case CREATE -> create();
+        }
+    }
+
+    private static void create() {
+        try {
+            Task task = CreateTask.show();
+            TaskRepository.save(task);
+            Message.success("Tarefa criada com sucesso!");
+            home();
+        } catch (RuntimeException e) {
+            Message.error("Erro ao criar a tarefa, por favor tente novamente");
+            home();
         }
     }
 
