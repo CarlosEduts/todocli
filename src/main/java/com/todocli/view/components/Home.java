@@ -31,8 +31,8 @@ public class Home {
                 ╔═════════════════════════════════════════════════════════════════════╗
                 ║                         JAVA TODO CLI - MENU                        ║
                 ╠═════════════════════════════════════════════════════════════════════╣
-                ║ [L] Listar tarefas       [C] Criar tarefa       [F] Filtrar         ║
-                ║ [S] Buscar tarefa        [D] Tarefas Excluídas  [Q] Sair            ║
+                ║ [L] Listar tarefas     [C] Criar tarefa    [D] Tarefas Excluídas    ║
+                ║ [Q] Sair                                                            ║
                 ╠═════════════════════════════════════════════════════════════════════╣
                 ║ Atalho: Pressione a tecla entre colchetes e ENTER.                  ║
                 ╚═════════════════════════════════════════════════════════════════════╝
