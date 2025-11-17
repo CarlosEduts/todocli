@@ -7,7 +7,8 @@ public enum TaskOption {
     EDIT('E'),
     DELETE('D'),
     MARK_DONE('M'),
-    BACK('B');
+    BACK('B'),
+    RESTORE('R');
 
     private final char code;
 

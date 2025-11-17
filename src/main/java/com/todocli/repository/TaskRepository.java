@@ -61,6 +61,18 @@ public class TaskRepository {
         }
     }
 
+    public static void restore(Task task) {
+        String sql = "UPDATE tasks SET deleted = 0 WHERE (id = ?);";
+
+        try (Connection conn = ConnectionFactory.getConnection()) {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setLong(1, task.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void markAsComplete(Task task) {
         String sql = "UPDATE tasks SET completed = 1 WHERE (id = ?);";
 

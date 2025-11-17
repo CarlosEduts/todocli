@@ -41,7 +41,7 @@ public class TaskDetail {
         System.out.printf("║ Descrição: %s ║\n", CliUtils.truncateOrPad(task.getDescription(), 81));
         System.out.printf("║ Status: %s ║\n", CliUtils.truncateOrPad(task.isCompleted() ? "Concluída" : "Pendente", 84));
         System.out.println("╠══════════════════════════════════════════════════════════════════════════════════════════════╣");
-        System.out.println("║                   [E] Editar  [M] Marcar como concluída  [D] Excluir  [B] Voltar             ║");
+        System.out.printf("║ %s  %s  [B] Voltar                                         ║\n", (task.isCompleted() || task.isDeleted() ? " ".repeat(25) : "[M] Marcar como concluída"), (task.isDeleted() ? "[R] Restaurar" : "[D] Excluir  "));
         System.out.println("╚══════════════════════════════════════════════════════════════════════════════════════════════╝");
     }
 }

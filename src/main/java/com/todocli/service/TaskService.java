@@ -69,5 +69,25 @@ public class TaskService {
         List<Task> tasks = TaskRepository.findAll();
         tasks = tasks.stream().filter(Task::isDeleted).toList();
         Task selectedTask = TasksList.show(tasks, "TAREFAS EXCLUÍDAS");
+
+        while (true) {
+            TaskOption taskOption = TaskDetail.show(selectedTask);
+
+            switch (taskOption) {
+                case RESTORE -> {
+                    if (ConfirmBox.taskRestore(selectedTask)) {
+                        TaskRepository.restore(selectedTask);
+                        Message.success("Tarefa restaurada com sucesso.");
+                        tasks(); // Retorna para a lista de tarefas
+                    } else {
+                        Message.alert("Ação cancelada.");
+                    }
+                }
+                case BACK -> {
+                    home();
+                    return;
+                }
+            }
+        }
     }
 }

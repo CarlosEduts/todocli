@@ -24,6 +24,14 @@ public class ConfirmBox {
         return selected == 'Y';
     }
 
+    public static boolean taskRestore(Task task){
+        printRestore(task);
+
+        System.out.print("\nAção selecionada >> ");
+        char selected = SCANNER.next().toUpperCase().charAt(0);
+        return selected == 'Y';
+    }
+
     /* ------------ MÉTODOS PRIVADOS AUXILIARES ------------ */
     private static void printDelete(Task task) {
         System.out.printf("""
@@ -49,6 +57,19 @@ public class ConfirmBox {
                 ╠═════════════════════════════════╣
                 ║ Deseja marcar a tarefa %03d como ║
                 ║ concluída?                      ║
+                ║                                 ║
+                ║ [Y] Sim    [N] Não              ║
+                ╚═════════════════════════════════╝
+                """, task.getId());
+    }
+
+    private static void printRestore(Task task) {
+        System.out.printf("""
+                ╔═════════════════════════════════╗
+                ║   CONFIRMAR RESTAURAÇÃO         ║
+                ╠═════════════════════════════════╣
+                ║ Deseja restaurar a tarefa %03d   ║
+                ║ ?                               ║
                 ║                                 ║
                 ║ [Y] Sim    [N] Não              ║
                 ╚═════════════════════════════════╝
