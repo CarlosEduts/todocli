@@ -1,8 +1,11 @@
-# Java TODO CLI
+# TODO CLI
 
 Projeto CLI para gerenciar tarefas simples em Java usando Maven.
 
-<img src="./public/Java TODO CLI.png" alt="Java TODO CLI"/>
+<img src="./public/home.png" alt="Java TODO CLI - Home"/>
+<img src="./public/tasks.png" alt="Java TODO CLI - Task List"/>
+<img src="./public/task_detail.png" alt="Java TODO - Task Details"/>
+<img src="./public/create_task.png" alt="Java TODO CLI - Create Tasks"/>
 
 ## Visão geral
 
@@ -27,7 +30,10 @@ helpers).
 Requisitos: Java 17\+, Maven, Docker e uma IDE (IntelliJ recomendada).
 
 - Instalar dependências Maven: `mvn clean install`
-- iniciar um container com o Docker Compose: `docker-compose up -d`
+- Iniciar um container com o Docker Compose: `docker-compose up -d`
+- Acessar o `bash` para dar comandos no banco de dados: `docker exec -it mysql bash`
+- Criar um `DATABASE` no banco de dados MySQL: `CREATE DATABASE todocli;`
+
 - Rodar direto pela IDE: abrir o projeto em IntelliJ e executar a classe `Main` (`src/main/java/com/todocli/Main.java`).
 
 ## Observações
