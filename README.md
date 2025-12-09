@@ -1,4 +1,4 @@
-# TODO CLI
+# 📋 TODO CLI
 
 Projeto CLI para gerenciar tarefas simples em Java usando Maven.
 
